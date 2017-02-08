@@ -3,17 +3,20 @@
   # California State University, Northridge Chapter #
   #               CODENAME: PENTAKILL               #
   ###################################################
-  #     Sprint & Climb Functions - "Dem Wheels"     #
+  #     Sprint & Climb Functions - "The Wheels"     #
   ###################################################*/
 
 const byte MAX_SPEED = 63;
+const byte MIN_SPEED = -MAX_SPEED;
 const byte MAX_TURN = 7;
+const byte MIN_TURN = -MAX_TURN;
 
 void driveStop() {
   // need code here
 }
 void drive(byte speed, byte direction){
-  if speed
+  speed = constrain(speed, MIN_SPEED, MAX_SPEED);
+  direction = constrain(direction, MIN_TURN, MAX_TURN);
   // need code here
 }
 void drive(byte speed){
