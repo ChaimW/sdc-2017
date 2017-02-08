@@ -2,6 +2,8 @@
   #    ASME Student Design Competition 2016-2017    #
   # California State University, Northridge Chapter #
   #               CODENAME: PENTAKILL               #
+  ###################################################
+  #            Main Sketch - "The Brain"            #
   ###################################################*/
 
 byte cmnd; // this is used for reading from the serial buffer
