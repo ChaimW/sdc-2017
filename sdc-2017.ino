@@ -13,22 +13,34 @@ void setup() { // this runs once at the beginning to set up
 void loop() { // main part of the program, loops indefinitely
   if (Serial1.available() > 0) { // check if there is data in the serial buffer
     cmnd = Serial1.read(); // read first byte of buffer
-    run(cmnd);
+    run(cmnd); // call run() with that 1 byte number
   }
 }
-void run(byte command) {
+void run(byte command) { //processes a 1 byte number to call matching function
   switch (command) {
     case 0:
       stopAll();
       break;
     case 1:
-
+      hitArm();
       break;
     case 2:
-
+      hitFire();
+      break; // case 3-5 reserved for hit
+    case 6:
+      liftRaise();
       break;
+    case 7:
+      liftLower();
+      break; // case 8-10 reserved for lift
+    case 11:
+      throwExtend();
+      break;
+    case 12:
+      throwRetract();
+      break; // case 13-15 reserved for throw
     default:
-      Serial.print("Invalid Command");
+      ;
   }
 }
 void stopAll() {
