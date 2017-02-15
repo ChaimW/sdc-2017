@@ -8,8 +8,8 @@
 
 
 const byte DRIVE_COMMAND_SHIFT = 16;
-const byte DRIVE_SPEED_RANGE = 33; // goes from -3 to 3
-const byte DRIVE_TURN_RANGE = 7; // goes from -16 to 16
+const byte DRIVE_SPEED_RANGE = 33; // goes from -16 to 16
+const byte DRIVE_TURN_RANGE = 7; // goes from -3 to 3
 byte cmnd; // this is used for reading from the serial buffer
 void setup() { // this runs once at the beginning to set up
   Serial1.begin(9600); // open serial channel 1 to comunicate over bluetooth at 9600 baud (bits per second). This matches the setting for the bluetooth component
@@ -44,7 +44,7 @@ void run(byte command) { //processes a 1 byte number to call matching function
       throwRetract();
       break; // case 13-15 reserved for throw
     default:
-      if(command >= DRIVE_COMMAND_SHIFT && command < DRIVE_SPEED_RANGE * DRIVE_TURN_RANGE + DRIVE_COMMAND_SHIFT){
+      if (command >= DRIVE_COMMAND_SHIFT && command < DRIVE_SPEED_RANGE * DRIVE_TURN_RANGE + DRIVE_COMMAND_SHIFT) {
         drive(command - DRIVE_COMMAND_SHIFT);
       }
   }
