@@ -15,7 +15,8 @@ void driveStop() {
 void drive(byte power, byte direct){
   power = constrain(power, -MAX_POWER, MAX_POWER);
   direct = constrain(direct, -MAX_TURN, MAX_TURN);
-  Serial1.println((String)("P:" + power) + (String)(" T:" + direct));
+  Serial1.println((String)("P" + power) + (String)("T" + direct));
+  Serial.println((String)("P" + power) + (String)("T" + direct));
   // need code here
 }
 void drive(byte value){
