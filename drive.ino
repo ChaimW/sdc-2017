@@ -6,26 +6,21 @@
   #     Sprint & Climb Functions - "The Wheels"     #
   ###################################################*/
 
-const byte MAX_SPEED = 63;
-const byte MIN_SPEED = -MAX_SPEED;
-const byte MAX_TURN = 7;
-const byte MIN_TURN = -MAX_TURN;
+const byte MAX_POWER = (DRIVE_SPEED_RANGE - 1) / 2;
+const byte MAX_TURN = (DRIVE_TURN_RANGE - 1) / 2;
 
 void driveStop() {
   // need code here
 }
-void drive(byte speed, byte direction){
-  speed = constrain(speed, MIN_SPEED, MAX_SPEED);
-  direction = constrain(direction, MIN_TURN, MAX_TURN);
+void drive(byte power, byte direct) {
+  power = constrain(power, -MAX_POWER, MAX_POWER);
+  direct = constrain(direct, -MAX_TURN, MAX_TURN);
+  sPrint((String)("P" + power) + (String)("T" + direct)); // debug
   // need code here
 }
-void drive(byte speed){
-  drive(speed, 0);
-}
-void driveForward(byte speed){
-  drive(speed);
-}
-void driveBackward(byte speed){
-  drive(-speed);
+void drive(byte value) {
+  byte power = (value % DRIVE_SPEED_RANGE) - MAX_POWER;
+  byte turn = (value / DRIVE_SPEED_RANGE) - MAX_TURN;
+  drive(power, turn);
 }
 
