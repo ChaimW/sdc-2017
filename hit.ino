@@ -9,6 +9,9 @@
 const byte HIT_PIN_POSITIVE = commandPin[4];
 const byte HIT_PIN_NEGATIVE = commandPin[5];
 
+void hitInit(){
+  ;
+}
 void hitArm() {
   digitalWrite(HIT_PIN_NEGATIVE, LOW);
   digitalWrite(HIT_PIN_POSITIVE, HIGH);

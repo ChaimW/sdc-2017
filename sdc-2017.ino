@@ -18,6 +18,10 @@ void setup() { // this runs once at the beginning to set up
   for (int i = 0; i < 8; i++) { // set command pins...
     pinMode(commandPin[i], OUTPUT); // to output mode
   }
+  driveInit(); //call init for each module
+  hitInit();
+  liftInit();
+  throwInit();
   stopAll(); // set everything to zero
 }
 void loop() { // main part of the program, loops indefinitely
@@ -27,6 +31,7 @@ void loop() { // main part of the program, loops indefinitely
   }
 }
 void run(byte command) { // processes a 1 byte number to call matching function
+  Serial.println("run: " + command);
   switch (command) {
     case 0:
       stopAll();
