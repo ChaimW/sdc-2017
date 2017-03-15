@@ -6,21 +6,21 @@
   #          Throw Function - "The Cannon"          #
   ###################################################*/
 
-const byte THROW_PIN_POSITIVE = commandPin[2];
-const byte THROW_PIN_NEGATIVE = commandPin[3];
+const byte THROW_POSITIVE = COMMAND_PIN[2];
+const byte THROW_NEGATIVE = COMMAND_PIN[3];
 
 void throwInit(){
   ;
 }
 void throwExtend() {
-  digitalWrite(THROW_PIN_NEGATIVE, LOW);
-  digitalWrite(THROW_PIN_POSITIVE, HIGH);
+  digitalWrite(THROW_NEGATIVE, LOW);
+  digitalWrite(THROW_POSITIVE, HIGH);
 }
 void throwRetract() {
-  digitalWrite(THROW_PIN_POSITIVE, LOW);
-  digitalWrite(THROW_PIN_NEGATIVE, HIGH);
+  digitalWrite(THROW_POSITIVE, LOW);
+  digitalWrite(THROW_NEGATIVE, HIGH);
 }
 void throwStop() {
-  digitalWrite(THROW_PIN_POSITIVE, LOW);
-  digitalWrite(THROW_PIN_NEGATIVE, LOW);
+  digitalWrite(THROW_POSITIVE, LOW);
+  digitalWrite(THROW_NEGATIVE, LOW);
 }

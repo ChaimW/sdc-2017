@@ -6,23 +6,23 @@
   #          Hit Functions - "Hole in One"          #
   ###################################################*/
 
-const byte HIT_PIN_POSITIVE = commandPin[4];
-const byte HIT_PIN_NEGATIVE = commandPin[5];
+const byte HIT_POSITIVE = COMMAND_PIN[4];
+const byte HIT_NEGATIVE = COMMAND_PIN[5];
 
 void hitInit(){
   ;
 }
 void hitArm() {
-  digitalWrite(HIT_PIN_NEGATIVE, LOW);
-  digitalWrite(HIT_PIN_POSITIVE, HIGH);
+  digitalWrite(HIT_NEGATIVE, LOW);
+  digitalWrite(HIT_POSITIVE, HIGH);
   delay(100); // see if we can drop this delay
-  digitalWrite(HIT_PIN_NEGATIVE, HIGH);
+  digitalWrite(HIT_NEGATIVE, HIGH);
 }
 void hitFire() {
-  digitalWrite(HIT_PIN_NEGATIVE, LOW);
-  digitalWrite(HIT_PIN_POSITIVE, HIGH);
+  digitalWrite(HIT_NEGATIVE, LOW);
+  digitalWrite(HIT_POSITIVE, HIGH);
 }
 void hitStop() {
-  digitalWrite(HIT_PIN_NEGATIVE, LOW);
-  digitalWrite(HIT_PIN_POSITIVE, LOW);
+  digitalWrite(HIT_NEGATIVE, LOW);
+  digitalWrite(HIT_POSITIVE, LOW);
 }

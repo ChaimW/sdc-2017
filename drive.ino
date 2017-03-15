@@ -6,6 +6,15 @@
   #     Sprint & Climb Functions - "The Wheels"     #
   ###################################################*/
 
+const byte CLIMB_ARM_POSITIVE = COMMAND_PIN[6];
+const byte CLIMB_ARM_NEGATIVE = COMMAND_PIN[7];
+const byte MOTORS[4][3] = {
+  {2,3,4},
+  {7,6,5},
+  {8,9,10},
+  {13,12,11}
+};
+
 const byte MAX_POWER = (DRIVE_SPEED_RANGE - 1) / 2;
 const byte MAX_TURN = (DRIVE_TURN_RANGE - 1) / 2;
 
@@ -24,4 +33,13 @@ void drive(byte power, byte direct) {
 }
 void driveStop() {
   // need code here
+}
+void climbArmExtend(){
+  
+}
+void climbArmRetract(){
+  
+}
+void climbArmStop(){
+  
 }
