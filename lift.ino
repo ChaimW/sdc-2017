@@ -6,10 +6,10 @@
   #           Lift Functions - "Going Up"           #
   ###################################################*/
 
-const byte LIFT_POSITIVE = COMMAND_PIN[0];
-const byte LIFT_NEGATIVE = COMMAND_PIN[1];
+const byte LIFT_POSITIVE = COMMAND_PIN[4];
+const byte LIFT_NEGATIVE = COMMAND_PIN[5];
 
-void liftInit(){
+void liftInit() {
   ;
 }
 void liftRaise() { // activate linear accelerator upward at fixed power
@@ -24,3 +24,4 @@ void liftStop() { // stop all lift movement
   digitalWrite(LIFT_POSITIVE, LOW);
   digitalWrite(LIFT_NEGATIVE, LOW);
 }
+

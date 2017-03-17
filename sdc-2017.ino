@@ -8,8 +8,8 @@
 
 const byte COMMAND_PIN[] = {37, 35, 33, 31, 29, 27, 25, 23}; // keep in mind that these are zero-indexed, but the relay board is labeled with a 1-index
 const byte DRIVE_COMMAND_SHIFT = 16;
-const byte DRIVE_SPEED_RANGE = 17; // goes from -8 to 8
-const byte DRIVE_TURN_RANGE = 5; // goes from -2 to 2
+const byte DRIVE_SPEED_RANGE = 7; // goes from -3 to 3
+const byte DRIVE_TURN_RANGE = 3; // goes from -1 to 1
 byte cmnd; // this is used for reading from the serial buffer
 
 void setup() { // this runs once at the beginning to set up
@@ -54,18 +54,17 @@ void run(byte command) { // processes a 1 byte number to call matching function
     case 12:
       throwRetract();
       break; // case 13-15 reserved for throw
-    case 253: // 101-252 not used
+    case 31:
       climbArmExtend();
       break;
-    case 254:
+    case 32:
       climbArmRetract();
       break;
-    case 255:
+    case 33:
       climbArmStop();
+      break;
     default:
-      if (command >= DRIVE_COMMAND_SHIFT && command < DRIVE_SPEED_RANGE * DRIVE_TURN_RANGE + DRIVE_COMMAND_SHIFT) { // 16-100
-        drive(command - DRIVE_COMMAND_SHIFT);
-      }
+      break;
   }
 }
 void stopAll() {

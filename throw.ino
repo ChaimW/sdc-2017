@@ -9,7 +9,7 @@
 const byte THROW_POSITIVE = COMMAND_PIN[2];
 const byte THROW_NEGATIVE = COMMAND_PIN[3];
 
-void throwInit(){
+void throwInit() {
   ;
 }
 void throwExtend() {
@@ -24,3 +24,4 @@ void throwStop() {
   digitalWrite(THROW_POSITIVE, LOW);
   digitalWrite(THROW_NEGATIVE, LOW);
 }
+
