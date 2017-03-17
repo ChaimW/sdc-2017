@@ -9,28 +9,26 @@
 const byte CLIMB_ARM_POSITIVE = COMMAND_PIN[6];
 const byte CLIMB_ARM_NEGATIVE = COMMAND_PIN[7];
 const byte FRONT_ENABLE = 7;
-const byte BACK_ENABLE = 0;
+const byte BACK_ENABLE = 41;
 const byte NUM_MOTORS = 4;
-const byte NUM_PINS = 3
+const byte NUM_PINS = 3;
 const byte MOTORS[NUM_MOTORS][NUM_PINS] = {
   {8, 9, 10},
   {13, 12, 11},
-  {2, 3, 4},
-  {7, 6, 5}
+  {46, 53, 51},
+  {45, 47, 49}
 };
-const byte FR[] = MOTORS[0];
-const byte FL[] = MOTORS[1];
-const byte BR[] = MOTORS[2];
-const byte BL[] = MOTORS[3];
 const byte MAX_POWER = (DRIVE_SPEED_RANGE - 1) / 2;
 const byte MAX_TURN = (DRIVE_TURN_RANGE - 1) / 2;
 
 void driveInit() {
   pinMode(FRONT_ENABLE, OUTPUT);
   pinMode(BACK_ENABLE, OUTPUT);
+  digitalWrite(FRONT_ENABLE, HIGH);
+  digitalWrite(BACK_ENABLE, HIGH);
   for (int i = 0; i < NUM_MOTORS; i++) {
     for (int j = 0; j < NUM_PINS; j++) {
-      pinMode(MOTORS[i][j]);
+      pinMode(MOTORS[i][j], OUTPUT);
     }
   }
 }
